@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller.AddAppointmentController">
+   <children>
+      <Label fx:id="primaryLabel" layoutX="467.0" layoutY="22.0" prefHeight="43.0" prefWidth="266.0" text="Add  Appointment">
+         <font>
+            <Font name="Franklin Gothic Medium" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="titleLabel" layoutX="353.0" layoutY="131.0" prefHeight="27.0" prefWidth="118.0" text="Title">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="descLabel" layoutX="353.0" layoutY="168.0" prefHeight="27.0" prefWidth="118.0" text="Description">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="locationLabel" layoutX="353.0" layoutY="242.0" prefHeight="27.0" prefWidth="118.0" text="Location">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="typeLabel" layoutX="353.0" layoutY="206.0" prefHeight="27.0" prefWidth="118.0" text="Type">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="contactLabel" layoutX="353.0" layoutY="278.0" prefHeight="27.0" prefWidth="118.0" text="Contact">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="startatLabel" layoutX="353.0" layoutY="314.0" prefHeight="27.0" prefWidth="118.0" text="Start At">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="endatLabel" layoutX="353.0" layoutY="350.0" prefHeight="27.0" prefWidth="118.0" text="End At">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="customerNameLabel" layoutX="353.0" layoutY="387.0" prefHeight="27.0" prefWidth="118.0" text="Customer Name">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Title" layoutX="498.0" layoutY="132.0" prefHeight="26.0" prefWidth="298.0" />
+      <TextField fx:id="Description" layoutX="498.0" layoutY="168.0" prefHeight="26.0" prefWidth="298.0" />
+      <TextField fx:id="Type" layoutX="498.0" layoutY="206.0" prefHeight="26.0" prefWidth="298.0" />
+      <TextField fx:id="Location" layoutX="498.0" layoutY="242.0" prefHeight="26.0" prefWidth="298.0" />
+      <TextField fx:id="CustomerName" layoutX="498.0" layoutY="387.0" prefHeight="26.0" prefWidth="298.0" />
+      <ComboBox fx:id="Contact" layoutX="498.0" layoutY="279.0" prefHeight="26.0" prefWidth="298.0" />
+      <DatePicker fx:id="StartDate" layoutX="651.0" layoutY="314.0" prefHeight="26.0" prefWidth="144.0" />
+      <DatePicker fx:id="EndDate" layoutX="651.0" layoutY="350.0" prefHeight="26.0" prefWidth="144.0" />
+      <Button fx:id="addAppointment" layoutX="498.0" layoutY="431.0" mnemonicParsing="false" onMouseClicked="#addAppointmentHandler" prefHeight="38.0" prefWidth="298.0" text="Add Appointment" />
+      <ComboBox fx:id="StartTime" layoutX="498.0" layoutY="314.0" prefHeight="26.0" prefWidth="144.0" />
+      <ComboBox fx:id="EndTime" layoutX="498.0" layoutY="350.0" prefHeight="26.0" prefWidth="144.0" />
+      <Button fx:id="gotoAppointment" layoutX="52.0" layoutY="44.0" mnemonicParsing="false" onMouseClicked="#gotoAppointmentHandler" prefHeight="38.0" prefWidth="85.0" text="Back" />
+   </children>
+</AnchorPane>

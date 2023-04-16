@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1150.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controller.Report1Controller">
+   <children>
+      <Label fx:id="primarylabel" layoutX="521.0" layoutY="21.0" prefHeight="50.0" prefWidth="108.0" text="Report 1">
+         <font>
+            <Font name="Franklin Gothic Medium Cond" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="secondarylabel" layoutX="357.0" layoutY="46.0" prefHeight="50.0" prefWidth="436.0" text="Total number of customer appointments by type and month">
+         <font>
+            <Font name="Franklin Gothic Medium Cond" size="19.0" />
+         </font>
+      </Label>
+      <TableView fx:id="Report1Table" layoutX="274.0" layoutY="143.0" prefHeight="434.0" prefWidth="602.0">
+        <columns>
+          <TableColumn fx:id="ReportType" prefWidth="179.2000274658203" text="Report Type" />
+          <TableColumn fx:id="Month" prefWidth="204.79998779296875" text="Month" />
+            <TableColumn fx:id="NumberOfAppointment" prefWidth="217.5999755859375" text="Number Of Appointment" />
+        </columns>
+      </TableView>
+      <Button fx:id="gotoCustomerTable" layoutX="57.0" layoutY="71.0" mnemonicParsing="false" onMouseClicked="#gotoCustomerTable" prefHeight="34.0" prefWidth="150.0" text="Customer Table" />
+      <Button fx:id="gotoReport2Table" layoutX="423.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#gotoReport2Table" prefHeight="26.0" prefWidth="108.0" text="Report 2" />
+      <Button fx:id="gotoReport3Table" layoutX="629.0" layoutY="105.0" mnemonicParsing="false" onMouseClicked="#gotoReport3Table" prefHeight="26.0" prefWidth="108.0" text="Report 3" />
+   </children>
+</AnchorPane>
