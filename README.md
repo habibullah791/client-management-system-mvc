@@ -14,16 +14,16 @@ The purpose of this application is to provide a user-friendly interface for mana
 * The database is integrated with the application using appropriate APIs and libraries.
 
 ## Author
-[Author Name]
+Habib Ullah
 
 ## Contact Information
-[Email Address]
+habibullahshahid001@gmail.com
 
 ## Application Version
 v1.0
 
 ## Date
-[Date of Completion]
+4/16/2023
 
 ## IDE
 NetBeans 8.0.2
