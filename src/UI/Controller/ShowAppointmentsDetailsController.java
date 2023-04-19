@@ -166,7 +166,7 @@ public class ShowAppointmentsDetailsController implements Initializable {
             if (Helper.SystemLanguage.getLanguage().equals("fr")) {
                 DialogBox.showDialog("Succès", "Rendez-vous supprimé avec succès");
             } else {
-                DialogBox.showDialog("Success", "Appointment deleted successfully");
+                DialogBox.showDialog("Appointment Canceled", "Appointment ID: " + appointmentID + "\nAppointment Type: " + type);
             }
             Navigate.goToAppointmentsPage();
         } else {

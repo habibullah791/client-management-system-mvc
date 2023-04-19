@@ -1,14 +1,17 @@
 package Helper;
 
+import java.util.function.Supplier;
+
 public class SystemLanguage {
  
-    public static String language = "";
+    public static Supplier<String> language = () -> "";
 
     public static String getLanguage() {
-        return language;
+        return language.get();
     }
-
-    public static void setLanguage(String language) {
-        SystemLanguage.language = language;
+    
+    public static void setLanguage(String newLanguage) {
+        language = () -> newLanguage;
     }
+    
 }

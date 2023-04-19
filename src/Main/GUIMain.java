@@ -34,6 +34,7 @@ public class GUIMain extends Application {
         // determine the system language
         Locale locale = Locale.getDefault();
 
+        System.out.println("System language: " + locale.getLanguage());
         // set the language
         if (locale.getLanguage().equals("fr")) {
             Helper.SystemLanguage.setLanguage("fr");
