@@ -100,16 +100,33 @@ public class ShowAppointmentsDetailsController implements Initializable {
         // set the default value of the combo box
         EndTime.setValue("08:00:00");
 
+
+        String start = appointment.getStart().toString();
+        String end = appointment.getEnd().toString();
+
+        // start and end time are in format 2023-04-03T17:00:00
+        // split the string to get the time
+        String[] startTime = start.split("T");
+        String[] endTime = end.split("T");
+
+        // ckeck if time is in hh:mm format convert it to hh:mm:ss
+        if (startTime[1].length() == 5) {
+            startTime[1] = startTime[1] + ":00";
+        }
+        if (endTime[1].length() == 5) {
+            endTime[1] = endTime[1] + ":00";
+        }
+
         Appointment_ID.setText(String.valueOf(appointment.getAppointmentId()));
         Title.setText(String.valueOf(appointment.getTitle()));
         Description.setText(String.valueOf(appointment.getDescription()));
         Location.setText(String.valueOf(appointment.getLocation()));
         Type.setText(String.valueOf(appointment.getType()));
-        StartTime.setValue("17:00:00");
+        StartTime.setValue(startTime[1]);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String date = appointment.getStart().format(formatter);
         StartDate.setValue(LocalDate.parse(date, formatter));
-        EndTime.setValue("17:00:00");
+        EndTime.setValue(endTime[1]);
         String date2 = appointment.getEnd().format(formatter);
         EndDate.setValue(LocalDate.parse(date2, formatter));
         Customer_name.setText(String.valueOf(appointment.getCustomerName()));
@@ -195,6 +212,12 @@ public class ShowAppointmentsDetailsController implements Initializable {
         String endTime = EndTime.getValue().toString();
         LocalDate endDate = this.EndDate.getValue();
         String Customer_name = this.Customer_name.getText();
+
+        // print the start and end time and date
+        System.out.println("Start time: " + startTime);
+        System.out.println("Start date: " + startDate);
+        System.out.println("End time: " + endTime);
+        System.out.println("End date: " + endDate);
 
         if (appointmentID == 0 || title.isEmpty() || description.isEmpty() || type.isEmpty() || startTime.isEmpty()
                 || endTime.isEmpty() || Customer_name.isEmpty()) {

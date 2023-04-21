@@ -145,7 +145,7 @@ public class AppointmentsTableController implements Initializable {
                         startTime = startTime + ":00";
                     }
                     String startDateTime = startDate + " " + startTime;
-                    startDateTime = Helper.DateTimeHelper.convertToLocalDaateTime(startDateTime);
+                    // startDateTime = Helper.DateTimeHelper.convertToLocalDaateTime(startDateTime);
                     setText(startDateTime);
                 }
             }
@@ -171,7 +171,7 @@ public class AppointmentsTableController implements Initializable {
                         endTime = endTime + ":00";
                     }
                     String endDateTime = endDate + " " + endTime;
-                    endDateTime = Helper.DateTimeHelper.convertToLocalDaateTime(endDateTime);
+                    // endDateTime = Helper.DateTimeHelper.convertToLocalDaateTime(endDateTime);
                     setText(endDateTime);
                 }
             }

@@ -43,6 +43,7 @@ public class GUIMain extends Application {
         }
         GUIMain.primaryStage = primaryStage;
         Navigate.goToLoginPage();
+        // Navigate.goToAppointmentsPage();
     }
 
     /**

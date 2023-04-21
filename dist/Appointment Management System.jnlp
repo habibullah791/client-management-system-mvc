@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="client.jar" size="89570" download="eager" />
+    <jar href="client.jar" size="85327" download="eager" />
     <jar href="lib\javafx-swt.jar" size="37119" download="eager" />
     <jar href="lib\javafx.base.jar" size="755034" download="eager" />
     <jar href="lib\javafx.controls.jar" size="2577980" download="eager" />

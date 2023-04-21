@@ -9,6 +9,8 @@ import java.security.Timestamp;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
@@ -125,8 +127,19 @@ public class AppointmentsController {
                     appointment.setDescription(rs.getString("Description"));
                     appointment.setLocation(rs.getString("Location"));
                     appointment.setType(rs.getString("Type"));
-                    appointment.setStart(rs.getTimestamp("Start").toLocalDateTime());
-                    appointment.setEnd(rs.getTimestamp("End").toLocalDateTime());
+                    // get the date and tim
+                    String start = rs.getTimestamp("Start").toString();
+                    String end = rs.getTimestamp("End").toString();
+
+                    start = start.substring(0, start.length() - 2);
+                    end = end.substring(0, end.length() - 2);
+
+
+                    String startTime = Helper.DateTimeHelper.convertToLocalDaateTime(start);
+                    String endTime = Helper.DateTimeHelper.convertToLocalDaateTime(end);
+
+                    appointment.setStart(LocalDateTime.parse(startTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+                    appointment.setEnd(LocalDateTime.parse(endTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
                     appointment.setCreateDate(rs.getTimestamp("Create_Date").toLocalDateTime());
                     appointment.setCreatedBy(rs.getString("Created_By"));
                     appointment.setLastUpdate(rs.getTimestamp("Last_Update").toLocalDateTime());
@@ -207,6 +220,12 @@ public class AppointmentsController {
             } else {
                 String Start = converter.convert(startTime, startDate);
                 String End = converter.convert(endTime, endDate);
+
+                // print the start and end
+                System.out.println("Start: " + Start);
+                System.out.println("End: " + End);
+
+
                 String userName = LoggedIn.user.getUserName();
                 // convert to datetime
                 String sql = "UPDATE appointments SET Title = ?, Description = ?, Location = ?, Type = ?, Start = ?, End = ?, Create_Date = NOW(), Created_By = ?, Last_Update = NOW(), Last_Updated_By = ?, Customer_ID = (SELECT Customer_ID FROM customers WHERE Customer_Name = ?), User_ID = (SELECT User_ID FROM users WHERE User_Name = ?), Contact_ID = ? WHERE Appointment_ID = ?";
