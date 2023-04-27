@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="client.jar" size="85327" download="eager" />
+    <jar href="client.jar" size="85235" download="eager" />
     <jar href="lib\javafx-swt.jar" size="37119" download="eager" />
     <jar href="lib\javafx.base.jar" size="755034" download="eager" />
     <jar href="lib\javafx.controls.jar" size="2577980" download="eager" />
@@ -18,6 +18,7 @@
     <jar href="lib\javafx.swing.jar" size="89685" download="eager" />
     <jar href="lib\javafx.web.jar" size="727747" download="eager" />
     <jar href="lib\mysql-connector-j-8.0.32.jar" size="2480823" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
     <jar href="lib\scenebuilder-19.0.0-SNAPSHOT-all.jar" size="9994790" download="eager" />
     <jar href="lib\scenebuilder-19.0.0-all.jar" size="9994734" download="eager" />
   </resources>

@@ -134,12 +134,13 @@ public class AppointmentsController {
                     start = start.substring(0, start.length() - 2);
                     end = end.substring(0, end.length() - 2);
 
-
                     String startTime = Helper.DateTimeHelper.convertToLocalDaateTime(start);
                     String endTime = Helper.DateTimeHelper.convertToLocalDaateTime(end);
 
-                    appointment.setStart(LocalDateTime.parse(startTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-                    appointment.setEnd(LocalDateTime.parse(endTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+                    appointment.setStart(
+                            LocalDateTime.parse(startTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+                    appointment
+                            .setEnd(LocalDateTime.parse(endTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
                     appointment.setCreateDate(rs.getTimestamp("Create_Date").toLocalDateTime());
                     appointment.setCreatedBy(rs.getString("Created_By"));
                     appointment.setLastUpdate(rs.getTimestamp("Last_Update").toLocalDateTime());
@@ -212,19 +213,12 @@ public class AppointmentsController {
      * @return int or 0
      */
     public static int updateAppointment(int appointmentID, String title, String description, String location,
-            String type, String startTime, LocalDate startDate, String endTime, LocalDate endDate,
+            String type, String startDateTime, String endDateTime,
             String customer_name) {
         try {
             if (dbHandler.getConnection() == null) {
                 return 0;
             } else {
-                String Start = converter.convert(startTime, startDate);
-                String End = converter.convert(endTime, endDate);
-
-                // print the start and end
-                System.out.println("Start: " + Start);
-                System.out.println("End: " + End);
-
 
                 String userName = LoggedIn.user.getUserName();
                 // convert to datetime
@@ -235,8 +229,8 @@ public class AppointmentsController {
                 ps.setString(2, description);
                 ps.setString(3, location);
                 ps.setString(4, type);
-                ps.setString(5, Start);
-                ps.setString(6, End);
+                ps.setString(5, startDateTime);
+                ps.setString(6, endDateTime);
                 ps.setString(7, userName);
                 ps.setString(8, userName);
                 ps.setString(9, customer_name);

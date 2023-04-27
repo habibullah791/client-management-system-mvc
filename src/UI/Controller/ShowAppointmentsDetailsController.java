@@ -100,7 +100,6 @@ public class ShowAppointmentsDetailsController implements Initializable {
         // set the default value of the combo box
         EndTime.setValue("08:00:00");
 
-
         String start = appointment.getStart().toString();
         String end = appointment.getEnd().toString();
 
@@ -183,7 +182,8 @@ public class ShowAppointmentsDetailsController implements Initializable {
             if (Helper.SystemLanguage.getLanguage().equals("fr")) {
                 DialogBox.showDialog("Succès", "Rendez-vous supprimé avec succès");
             } else {
-                DialogBox.showDialog("Appointment Canceled", "Appointment ID: " + appointmentID + "\nAppointment Type: " + type);
+                DialogBox.showDialog("Appointment Canceled",
+                        "Appointment ID: " + appointmentID + "\nAppointment Type: " + type);
             }
             Navigate.goToAppointmentsPage();
         } else {
@@ -213,11 +213,12 @@ public class ShowAppointmentsDetailsController implements Initializable {
         LocalDate endDate = this.EndDate.getValue();
         String Customer_name = this.Customer_name.getText();
 
-        // print the start and end time and date
-        System.out.println("Start time: " + startTime);
-        System.out.println("Start date: " + startDate);
-        System.out.println("End time: " + endTime);
-        System.out.println("End date: " + endDate);
+        // convert the date and time to UTC
+        String startDateTime = startDate + " " + startTime.trim();
+        String endDateTime = endDate + " " + endTime.trim();
+
+        startDateTime = Helper.DateTimeHelper.convertToUTC(startDateTime);
+        endDateTime = Helper.DateTimeHelper.convertToUTC(endDateTime);
 
         if (appointmentID == 0 || title.isEmpty() || description.isEmpty() || type.isEmpty() || startTime.isEmpty()
                 || endTime.isEmpty() || Customer_name.isEmpty()) {
@@ -226,8 +227,8 @@ public class ShowAppointmentsDetailsController implements Initializable {
         }
 
         int isAdded = AppointmentsController.updateAppointment(appointmentID, title, description, location, type,
-                startTime,
-                startDate, endTime, endDate, Customer_name);
+                startDateTime,
+                endDateTime, Customer_name);
 
         if (isAdded == 1) {
             DialogBox.showDialog("Success", "Appointment updated successfully");
